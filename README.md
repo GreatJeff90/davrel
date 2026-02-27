@@ -86,11 +86,3 @@ This project is developed for Davrel Global Resources. All rights reserved.
 **Maintained by [Great Pam**](https://www.google.com/search?q=https://github.com/GreatJeff90)
 
 ```
-
-### Why this README works for you:
-1.  **Reflects the Brand:** It explicitly mentions **Davrel Global Resources**, aligning with your project goals.
-2.  **Modern Specs:** It identifies Next.js 15 and TypeScript, which matches the files currently in your repo (like `next.config.ts` and `eslint.config.mjs`).
-3.  **Clean Setup:** It includes the specific installation and dev commands you need for your local environment on your Latitude E6440.
-4.  **Professional Touch:** It includes a "Live Demo" badge pointing to your Vercel URL.
-
-```

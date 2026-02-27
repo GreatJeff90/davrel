@@ -188,57 +188,6 @@ export default function About() {
         </motion.div>
       </section>
 
-      {/* 5. TEAM / LEADERSHIP */}
-      <section className="bg-slate-50 py-28 border-t border-slate-200">
-        <div className="max-w-7xl mx-auto px-6">
-            <motion.div 
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              className="flex flex-col md:flex-row justify-between items-end mb-16 gap-4"
-            >
-              <div>
-                <h2 className="text-3xl font-bold text-gray-900">Leadership Team</h2>
-                <p className="mt-2 text-gray-600 max-w-md">Meet the experts leading Davrel Global towards a sustainable future.</p>
-              </div>
-              <Link href="/contact" className="hidden md:block text-green-700 font-bold hover:text-green-800 transition flex items-center gap-2">
-                View all team members <span>&rarr;</span>
-              </Link>
-            </motion.div>
-            
-            <motion.div 
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              variants={staggerContainer}
-              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"
-            >
-              {[
-                { name: "David Okeke", role: "CEO & Founder", img: "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=800&auto=format&fit=crop" },
-                { name: "Sarah Johnson", role: "Head of Operations", img: "https://images.unsplash.com/photo-1573496359-0e75849353a0?q=80&w=800&auto=format&fit=crop" },
-                { name: "Michael Chen", role: "Chief Financial Officer", img: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=800&auto=format&fit=crop" },
-                { name: "Amara Ndiaye", role: "Lead Agronomist", img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=800&auto=format&fit=crop" }
-              ].map((member, idx) => (
-                <motion.div key={idx} variants={fadeInUp} className="group cursor-pointer">
-                  <div className="relative w-full aspect-[3/4] rounded-2xl overflow-hidden mb-5 bg-gray-200">
-                    <Image 
-                      src={member.img}
-                      alt={member.name}
-                      fill
-                      className="object-cover transition-transform duration-500 group-hover:scale-110 group-hover:grayscale-0 grayscale-[0.2]"
-                    />
-                    {/* Hover Overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-green-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
-                      <p className="text-white text-sm font-medium">Connect on LinkedIn &rarr;</p>
-                    </div>
-                  </div>
-                  <h3 className="font-bold text-xl text-gray-900 group-hover:text-green-700 transition-colors">{member.name}</h3>
-                  <p className="text-sm font-medium text-gray-500 uppercase tracking-wide mt-1">{member.role}</p>
-                </motion.div>
-              ))}
-            </motion.div>
-        </div>
-      </section>
 
       {/* 6. BOTTOM CTA */}
       <section className="bg-green-900 py-24 text-center">
