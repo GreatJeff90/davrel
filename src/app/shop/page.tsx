@@ -5,14 +5,14 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 
-// Mock Product Data
+// Optimized Product Data with functional Unsplash links
 const PRODUCTS = [
   {
     id: 1,
     name: "Dried BSF Larvae (High Protein)",
     category: "Feed",
     price: "₦1,000 / kg",
-    image: "https://images.unsplash.com/photo-1585314062340-f1a5a7c9328d?q=80&w=800&auto=format&fit=crop", // Updated to local asset
+    image: "https://images.unsplash.com/photo-1585314062340-f1a5a7c9328d?q=80&w=800&auto=format&fit=crop",
     desc: "Premium dried larvae for poultry and fish feed. 100% organic and sustainable protein source.",
     tag: "Best Seller"
   },
@@ -21,7 +21,7 @@ const PRODUCTS = [
     name: "BSF Frass Fertilizer",
     category: "Agriculture",
     price: "₦1,000 / bag",
-    image: "https://images.unsplash.com/photo-1585314062340-f1a5a7c9328d?q=80&w=800&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1628352081506-83c43123ed6d?q=80&w=800&auto=format&fit=crop",
     desc: "Organic fertilizer rich in nutrients. Perfect for vegetable farming and enhancing soil health.",
     tag: "Eco-Friendly"
   },
@@ -30,8 +30,8 @@ const PRODUCTS = [
     name: "Live Larvae Starter Kit",
     category: "Training",
     price: "₦250,000",
-    image: "https://images.unsplash.com/photo-1585314062340-f1a5a7c9328d?q=80&w=800&auto=format&fit=crop",
-    desc: "Everything you need to start your own BSF colony for a week. Includes live larvae, bin, and manual.",
+    image: "https://images.unsplash.com/photo-1625246333195-78d9c38ad449?q=80&w=800&auto=format&fit=crop",
+    desc: "Everything you need to start your own BSF colony. Includes live larvae, bin, and manual.",
     tag: "New Arrival"
   },
   {
@@ -48,13 +48,13 @@ const PRODUCTS = [
     name: "Pupas for Breeding",
     category: "Breeding",
     price: "₦8,000 / bag",
-    image: "https://images.unsplash.com/photo-1585314062340-f1a5a7c9328d?q=80&w=800&auto=format&fit=crop",
-    desc: "Emerges into flies. For people who want to breed their own larvae or use as live feed for aquaculture.",
+    image: "https://images.unsplash.com/photo-1530595467537-0b5996c41f2d?q=80&w=800&auto=format&fit=crop",
+    desc: "Emerges into flies. For people who want to breed their own larvae or use as live feed.",
     tag: null
   },
   {
     id: 6,
-    name: "Fish",
+    name: "Fresh Fish",
     category: "Breeding",
     price: "₦3,500 / kg",
     image: "https://images.unsplash.com/photo-1524704659698-9ff03063f854?q=80&w=800&auto=format&fit=crop",
@@ -67,7 +67,7 @@ const PRODUCTS = [
     category: "Breeding",
     price: "Coming soon",
     image: "https://images.unsplash.com/photo-1516467508483-a7212febe31a?q=80&w=800&auto=format&fit=crop",
-    desc: "Coming soon! We will be offering piglets and swine feed enriched with BSF protein. Stay tuned for updates.",
+    desc: "We will be offering piglets and swine feed enriched with BSF protein. Stay tuned.",
     tag: null
   },
   {
@@ -76,7 +76,7 @@ const PRODUCTS = [
     category: "Breeding",
     price: "Coming soon",
     image: "https://images.unsplash.com/photo-1548550023-2bdb3c5beed7?q=80&w=800&auto=format&fit=crop",
-    desc: "Coming soon! We will be offering poultry feed enriched with BSF protein. Stay tuned for updates.",
+    desc: "High-quality poultry options fed with organic BSF nutrient-rich feed.",
     tag: null
   },
   {
@@ -85,7 +85,7 @@ const PRODUCTS = [
     category: "Breeding",
     price: "Coming soon",
     image: "https://images.unsplash.com/photo-1534432082912-63853111f62b?q=80&w=800&auto=format&fit=crop",
-    desc: "Coming soon! We will be offering snail feed enriched with BSF protein. Stay tuned for updates.",
+    desc: "Premium snails bred in a controlled organic environment for maximum yield.",
     tag: null
   },
 ];
@@ -133,7 +133,7 @@ export default function Shop() {
               >
                 {activeCategory === cat && (
                   <motion.div
-                    layoutId="activeCategory"
+                    layoutId="activeCategoryTab"
                     className="absolute inset-0 bg-green-700 rounded-full shadow-md"
                     transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
                   />
@@ -180,13 +180,14 @@ export default function Shop() {
                 key={product.id}
                 className="group bg-white rounded-2xl p-3 shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 flex flex-col"
               >
-                <div className="relative aspect-[4/3] rounded-xl overflow-hidden bg-gray-100 mb-4">
+                <div className="relative aspect-[4/3] rounded-xl overflow-hidden bg-gray-200 mb-4">
                   <Image 
                     src={product.image} 
                     alt={product.name}
                     fill
                     className="object-cover group-hover:scale-110 transition duration-700"
-                    sizes="(max-width: 768px) 100vw, 25vw"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                    priority={product.id <= 4}
                   />
                   {product.tag && (
                     <div className="absolute top-2 left-2 bg-white/90 backdrop-blur text-green-800 text-[10px] font-bold px-2 py-1 rounded shadow-sm uppercase tracking-wider">
