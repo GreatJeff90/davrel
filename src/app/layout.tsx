@@ -1,32 +1,32 @@
-// app/layout.tsx
-import type { Metadata } from 'next';
+// src/app/layout.tsx
 import './globals.css';
-import Navbar from '../components/Navbar'; // Importing Navbar
-import Footer from '../components/Footer'; // Importing Footer
+import Navbar from '@/components/Navbar'; // Adjust this path if your Navbar is elsewhere
 
-export const metadata: Metadata = {
-  title: 'Davrel Global Resources',
-  description: 'Sustainable Value. Responsible Growth.',
+export const metadata = {
+  title: 'Davrel Market',
+  description: 'Premium agricultural products & BSF supplies',
 };
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className="bg-gray-50 flex flex-col min-h-screen">
+    <html lang="en" suppressHydrationWarning>
+      <body 
+        className="bg-gray-50 flex flex-col min-h-screen" 
+        suppressHydrationWarning
+      >
         {/* Navbar sits at the top */}
         <Navbar />
         
-        {/* Main content grows to fill space */}
+        {/* Main content area */}
         <main className="flex-grow">
           {children}
         </main>
-        
-        {/* Footer sits at the bottom */}
-        <Footer />
+
+        {/* You can add a Footer here if needed */}
       </body>
     </html>
   );
